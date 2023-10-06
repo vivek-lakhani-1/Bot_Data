@@ -3,3 +3,4 @@ Flask
 langchain
 pinecone-client
 python-decouple
+google-generativeai
