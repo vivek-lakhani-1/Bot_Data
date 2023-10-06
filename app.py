@@ -34,8 +34,9 @@ qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=docsearc
 
 app = Flask(__name__)
 CORS(app)
-@cross_origin(origin='*')
+
 @app.route('/',methods=['POST'])
+@cross_origin(origin='*')
 def getting_data():
     data = request.json
     query = data.get('query', 'World')
