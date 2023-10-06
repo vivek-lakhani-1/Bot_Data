@@ -10,6 +10,8 @@ import pinecone
 import os
 from decouple import config
 import sys
+from flask_cors import CORS, cross_origin
+
 
 
 os.environ['GOOGLE_API_KEY'] = config("GOOGLE_API_KEY")
@@ -32,6 +34,7 @@ qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=docsearc
 
 app = Flask(__name__)
 CORS(app)
+@cross_origin(origin='*')
 @app.route('/',methods=['POST'])
 def getting_data():
     data = request.json
