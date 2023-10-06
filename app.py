@@ -31,7 +31,7 @@ qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=docsearc
 
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route('/',methods=['POST'])
 def getting_data():
     data = request.json
